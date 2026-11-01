@@ -11,5 +11,5 @@ test('Delivered HTML starts without sibling scripts or ResizeObserver and wires 
  vm.createContext(box);for(const m of html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g))vm.runInContext(m[1],box);
  assert.equal(els['startup-status'].hidden,true);
  for(const [button,view] of [['menu-help','help'],['menu-settings','settings'],['menu-host','characters'],['menu-join','characters']]){els[button].click();assert.equal(els['view-'+view].hidden,false);els['menu-back'].click();assert.equal(els['menu-home'].hidden,false)}
- els['menu-solo'].click();for(let id of ['frost','hop','ember','rook']){els['choose-'+id].click();assert.equal(els['char-name'].textContent,id[0].toUpperCase()+id.slice(1))}els['char-confirm'].click();assert.equal(els['menu-screen'].hidden,true);assert.equal(els['play-screen'].hidden,false);els.choices.children.at(-1).click();assert.equal(els.panel.hidden,true);
+ els['menu-solo'].click();for(let id of ['frost','hop','ember','rook']){els['choose-'+id].click();assert.equal(els['char-name'].textContent,id[0].toUpperCase()+id.slice(1))}els['char-confirm'].click();assert.equal(els['menu-screen'].hidden,true);assert.equal(els['play-screen'].hidden,false);assert.equal(els.panel.hidden,true);
 });
