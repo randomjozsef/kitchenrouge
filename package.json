@@ -1,0 +1,19 @@
+{
+  "name": "kitchen-crawl-online",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Two-player host-authoritative kitchen-crawling co-op prototype",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node --test",
+    "build": "node build.cjs",
+    "prestart": "npm run build"
+  },
+  "dependencies": {
+    "ws": "latest"
+  }
+}
