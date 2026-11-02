@@ -20,7 +20,7 @@ Standard rooms measure 760×440 world units and remain entirely visible with a f
 
 Standard combat rooms contain 4–6 solid crates; large combat rooms contain 8–12, with proportionally larger crates. Use them to hide from incoming shots, but remember that they also block your shots and movement, including Hop's dash. Enemies collide with cover too. Cover does not protect against warning-marked ground attacks. Boss rooms stay open without crates, keeping their attack patterns readable.
 
-Walk near a chest after clearing its room to open it. It scatters 5–9 coins, which you collect by walking over them. An opened chest stays empty when you revisit the room.
+Walk near a chest after clearing its room to open it. It scatters 2–4 coins, which you collect by walking over them. An opened chest stays empty when you revisit the room.
 
 * Floor 1: chests and item-room entrances are free.
 * Floor 2 onward: each chest and each locked item-room entrance costs 1 key. Approaching the chest or walking into the entrance spends the key automatically if you have one.
@@ -99,7 +99,7 @@ Choose Solo expedition and select your courier. Confirming starts your run immed
 
 Each player has separate lives. If one player goes down, the survivor can revive them with 1 life by clearing the combat room. If both players go down, the run ends.
 
-Recipes, coins, keys, and loot choices are shared. Either living player can move the team through unlocked doors or the next-floor hatch. Maximum-life deals affect both players. Damage taken by either player during a boss encounter prevents the flawless blessing.
+Coins, keys, rooms, and pedestal choices are shared. Recipes and upgrades belong only to the courier who collects them. Each browser shows its own courier’s recipe inventory. Either living player can move the team through unlocked doors or the next-floor hatch. Maximum-life deals charge only their collector and must leave that courier at least 2 maximum lives. Damage taken by either player during a boss encounter prevents the flawless blessing.
 
 Keep the host's browser tab active. Disconnects, refreshing the page, or a server restart can end the session; reconnecting to an ongoing run is not supported.
 
@@ -246,3 +246,59 @@ For local setup, Render deployment, and technical details, see [HOSTING.md](HOST
 ## About this project
 
 Kitchen Crawl Online uses original courier portraits and boss designs inspired by roguelike dungeon crawlers. It does not use The Binding of Isaac artwork, music, code, or characters. Delivery-brand-inspired outfits are unofficial; the game is not affiliated with Wolt, Deliveroo, or DoorDash. Brand references should be reviewed before public distribution.
+
+
+## Private co-op inventories — v0.5.4
+
+* Each courier has independent damage, fire rate, movement, extra shots, piercing, burning, ricochets, maximum lives, and recipe history. Shared coins pay for the collecting courier’s purchases; keys remain shared.
+* Pedestals are still a shared, one-time choice, not duplicated loot: agree who should collect a recipe. If both couriers overlap it, the nearest collects it; exact ties favor P1. Downed players cannot collect.
+* Maximum-life deals charge only the collector. Health upgrades and shop meals heal only the collector; dropped health heals one nearby injured courier. Cafe meals still restore 1 life to each living player on first visit.
+* Piercing, burning, ricochet, and spread caps are checked per courier. Already-capped items cannot be collected by that courier; their partner can still take them. Each shot retains the effects it had when fired.
+* New runs reset both inventories. Boss completion marks remain saved. Inventory changes are host-authoritative and travel in full and compact snapshots, including guest movement-speed upgrades used by prediction.
+* That release used network protocol 3 (superseded by protocol 4 in v0.6.0). Refresh both browsers together; old clients are rejected rather than silently applying shared-upgrade rules.
+* Automated checks cover ownership for all 14 recipe/deal types, shared shop payments, personal healing and life costs, guest HUD and snapshot stats, shot effects, caps, and resets. Browser visual/play testing has not been performed.
+
+
+## Scarcity and twenty new items — v0.6.0
+
+### Scarcer shared coins
+
+* Start with **3 coins**, down from 20.
+* Combat-room clear: **3 coins**, down from 15.
+* Boss clear: **8 extra coins** (11 including room reward), down from 25 extra. Champion bosses add 4 more, down from 15.
+* Kills have a **20% chance to award 1 coin**, replacing the guaranteed 3. Burning kills use the same rule. Boss burn deaths still receive their room-clear reward.
+* Chests scatter **2–4 coins**, down from 5–9. Keys still cost 10 and meals 12.
+* Shop recipes cost **20 / 24 / 30 / 40** for common / uncommon / rare / legendary. Free treasure recipes and boss rewards remain available, so progress does not depend on affording a shop purchase.
+
+### Twenty new recipes (28 pedestal items total, plus the 6 existing deal items)
+
+| Item | Rarity | Effect |
+|---|---|---|
+| Compass seasoning | rare | Fries steer toward enemies in line of sight within 320 units. |
+| Popcorn core | legendary | Hits explode in an 80-unit radius for 70% fry damage. No friendly fire. |
+| Caramel charges | rare | Hits attach a charge: after 0.8s it bursts for 80% damage in 60 units. Up to 4 per enemy. |
+| Pickled venom | uncommon | Hits poison enemies for 3 seconds, dealing 1 damage per second. |
+| Static salt | rare | Hits arc to one other enemy within 130 units for 50% damage. Cover blocks arcs. |
+| Crumb splitter | rare | A hit releases two short-lived crumbs dealing 40% fry damage. Crumbs cannot split again. |
+| Heavy cut | common | Hits push ordinary enemies 18 units; bosses resist. |
+| Lucky sesame | uncommon | Each fry has a 15% chance to deal double damage. |
+| Last bite | rare | Deal 50% more damage to enemies below 25% health. |
+| Icebox glaze | uncommon | Your fries slow enemies by 35% for 1.2 seconds. |
+| Long delivery | common | Fries last 40% longer. |
+| Express oil | common | Fries travel 25% faster. |
+| Thick cut | common | Fries have a larger hitbox. |
+| Double dip | rare | Add two angled fries, respecting the six-extra-fries cap. |
+| Back-order | uncommon | Also fire one fry backwards. |
+| Cross-cut | rare | Also fire two fries at 45-degree angles. |
+| Foil wrapper | rare | Block one hit each combat room. Recharges when entering a new uncleared combat room. |
+| Midnight snack | legendary | Your direct or secondary-hit kills have a 12% chance to heal you 1 life. |
+| Garlic crunch | common | Add 0.5 damage per fry. |
+| Kitchen timer | common | Shoot 15% faster. |
+
+Offers use weighted sampling without replacement: each eligible common item has weight 10, uncommon 4, rare 1, legendary 0.25. These are **per-item weights**, not fixed category percentages; odds change as eligible items are removed. Treasure rooms, shops, and boss recipe rewards use this pool. Existing spicy deals/blessings keep their own pools. Most new special effects are unique per courier; Garlic crunch and Kitchen timer stack, and Double dip can stack to the existing spread cap.
+
+All new effects remain personal. Coins and keys stay shared. Homing and arcs respect cover; blasts respect cover and cannot hurt either player. Sticky charges attach to an enemy, cap at 4, and disappear when a killed ordinary enemy is removed; they are not persistent floor bombs. Poison refreshes rather than stacking damage. Foil shields show a ring and do not recharge by revisiting cleared rooms. Split crumbs cannot spawn more crumbs or inherit recursive explosions/arcs. Vampiric healing is credited by player slot, not courier name, so two players can choose the same character safely; ongoing burn/poison kills do not trigger it. Active projectiles are capped at 180.
+
+Rarity labels and individual symbols appear on pedestals. Homing, explosive, and sticky shots have distinct treatments; sticky enemies show a countdown, blasts show a radius, arcs show their link. All status, projectile, inventory, shield, and coin state is host-authoritative and synchronized in full/compact snapshots. New runs reset the effects; existing boss marks are unchanged.
+
+**Protocol 4:** update the full project, refresh both browsers, and start a new room. Mixed client versions are not supported. Automated tests cover the economy, rarity selection, effects, personal ownership, synchronization, and bundled-page startup. Real browser visuals, combat feel, and final difficulty balance still require playtesting. The real WebSocket integration check requires installing the project dependency.

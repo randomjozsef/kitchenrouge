@@ -1,6 +1,6 @@
 {
   "name": "kitchen-crawl-online",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "private": true,
   "description": "Two-player host-authoritative kitchen-crawling co-op prototype",
   "license": "UNLICENSED",
