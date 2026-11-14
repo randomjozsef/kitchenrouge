@@ -414,7 +414,7 @@ function drawHazards(c){for(let h of hazards){
  ctx.save();ctx.fillStyle=c(warning?'gold':'on');ctx.font='bold 10px system-ui';ctx.textAlign='center';ctx.fillText(warning?'! '+h.warn.toFixed(1):'DANGER',lx,ly);ctx.restore();
 }}
 function drawBossBullet(b,c){
- if(!b.skin||b.skin==='orb'){circle(b.x,b.y,b.r,'danger');return;}
+ if(!b.skin||b.skin==='orb'){ctx.save();ctx.fillStyle=c('danger');ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();ctx.restore();return;}
  ctx.save();ctx.translate(b.x,b.y);ctx.rotate(Math.atan2(b.vy,b.vx));ctx.strokeStyle=c('danger');ctx.fillStyle=c('gold');ctx.lineWidth=2;ctx.beginPath();
  if(b.skin==='cleaver'||b.skin==='cheese'){ctx.moveTo(8,0);ctx.lineTo(-6,-5);ctx.lineTo(-3,5);ctx.closePath();ctx.fill();ctx.stroke();}
  else if(b.skin==='ice'||b.skin==='rift'||b.skin==='pulse'){ctx.moveTo(8,0);ctx.lineTo(0,-5);ctx.lineTo(-8,0);ctx.lineTo(0,5);ctx.closePath();ctx.fill();ctx.stroke();}
