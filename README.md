@@ -1,8 +1,8 @@
-# Kitchen Crawl Online
+# rKitchen Crawl Online
 
 A kitchen-themed dungeon crawler for solo players and two-player online co-op. Choose a courier, battle through dangerous kitchens, collect recipes that change your attacks, and defeat four campaign major bosses across 12 floors, with two additional optional endgame bosses.
 
-Current version: 0.11.0. This is a playable prototype; balancing and browser/device playtesting are still in progress.
+Current version: 0.13.3. This is a playable prototype; balancing and browser/device playtesting are still in progress.
 
 ## How to play
 
@@ -35,14 +35,16 @@ Minimap legend: Start = starting room, F = fight, T = item room, K = locked item
 
 ## Controls
 
-| Action | Control |
-|---|---|
-| Move | W, A, S, D |
-| Shoot | Arrow keys |
-| Active ability | E or Space |
+
+| Action                      | Control              |
+| --------------------------- | -------------------- |
+| Move                        | W, A, S, D           |
+| Shoot                       | Arrow keys           |
+| Active ability              | E or Space           |
 | Touch movement and shooting | On-screen touch pads |
-| Touch ability | Ability button |
-| Pause, settings, and help | In-game Menu button |
+| Touch ability               | Ability button       |
+| Pause, settings, and help   | In-game Menu button  |
+
 
 Rook and Frost have passive abilities only. Hop and Ember have active abilities with cooldowns. Settings include volume, audio, touch-pad visibility, and reduced menu motion.
 
@@ -50,12 +52,14 @@ Rook and Frost have passive abilities only. Hop and Ember have active abilities 
 
 Each courier has a different starting kit. Both co-op players choose independently, and duplicate characters are allowed.
 
-| Courier | Starting lives | Play style | Ability |
-|---|---:|---|---|
-| Rook | 3 | Balanced survival | Heals one life after defeating a boss |
-| Frost | 2 | Fast-firing crowd control | Hits slow enemy movement by 35% for 1.2 seconds |
-| Hop | 2 | Fast movement and evasive play | Double movement speed and damage immunity for 0.4 seconds; 5-second cooldown |
-| Ember | 4 | Heavy damage, slower movement | Extra damage at 3 lives or fewer; active doubles firing rate for 3 seconds with a 12-second cooldown |
+
+| Courier | Starting lives | Play style                     | Ability                                                                                              |
+| ------- | -------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| Rook    | 3              | Balanced survival              | Heals one life after defeating a boss                                                                |
+| Frost   | 2              | Fast-firing crowd control      | Hits slow enemy movement by 35% for 1.2 seconds                                                      |
+| Hop     | 2              | Fast movement and evasive play | Double movement speed and damage immunity for 0.4 seconds; 5-second cooldown                         |
+| Ember   | 4              | Heavy damage, slower movement  | Extra damage at 3 lives or fewer; active doubles firing rate for 3 seconds with a 12-second cooldown |
+
 
 Hop cannot move through walls. Frost slows enemy movement, not enemy projectiles.
 
@@ -107,12 +111,14 @@ Keep the host's browser tab active. Disconnects, refreshing the page, or a serve
 
 Regular bosses and champions appear between four fixed campaign milestones.
 
-| Floor | Boss | What to expect |
-|---|---|---|
-| 3 | Boiler Heart | Radial barrages and delayed ground explosions |
-| 6 | Ash Warden | Targeted stomps and furnace columns |
-| 9 | The Silent Deep | Slow bullet curtains with gaps and paired warning columns |
-| 12 | The Unravelled | Shifting attack forms and telegraphed teleport landings |
+
+| Floor | Boss            | What to expect                                            |
+| ----- | --------------- | --------------------------------------------------------- |
+| 3     | Boiler Heart    | Radial barrages and delayed ground explosions             |
+| 6     | Ash Warden      | Targeted stomps and furnace columns                       |
+| 9     | The Silent Deep | Slow bullet curtains with gaps and paired warning columns |
+| 12    | The Unravelled  | Shifting attack forms and telegraphed teleport landings   |
+
 
 Major bosses enrage below half health. Outlined or dashed ground markers with countdowns warn of upcoming attacks; solid DANGER zones deal damage. Move out of the warning area before it activates.
 
@@ -140,11 +146,13 @@ Starting lives are 3 for Rook, 2 for Frost, 2 for Hop, and 4 for Ember. These no
 
 Twelve regular boss families are shuffled between the fixed milestone floors. A campaign draws eight of the twelve without repeats, so not every boss appears every run. Regular bosses never award completion marks. The four campaign milestones and two optional endgame bosses award their existing marks. See v0.10.0 below for the expanded roster.
 
-| New regular boss | Attacks |
-|---|---|
-| Cleaver Crab | Twin staggered projectile fans and warning-marked ground strikes |
-| Pickle Hydra | Three-headed spread volleys and alternating radial bursts |
-| Pressure Chef | Warning-marked pressure columns, targeted circles, and aimed spreads |
+
+| New regular boss | Attacks                                                              |
+| ---------------- | -------------------------------------------------------------------- |
+| Cleaver Crab     | Twin staggered projectile fans and warning-marked ground strikes     |
+| Pickle Hydra     | Three-headed spread volleys and alternating radial bursts            |
+| Pressure Chef    | Warning-marked pressure columns, targeted circles, and aimed spreads |
+
 
 The six existing regular bosses have increased health, faster projectiles and attack cycles, and additional warning-marked ground strikes. Champions can also appear among the new random bosses. Boss warnings remain visible before hazards activate.
 
@@ -208,7 +216,6 @@ Older notes below describe the rules at their release dates; v0.5.2 changes abov
 * Added automated checks for healing limits, all nine regular bosses, mark exclusion, shuffled boss selection, enemy counts, and guest synchronization.
 * This is a balance pass, not a browser-playtested difficulty guarantee. Human combat and mobile testing are still needed.
 
-
 ### Version 0.3.0 — Major bosses and completion marks
 
 * Added a fixed 12-floor campaign in place of the endless floor loop.
@@ -247,7 +254,6 @@ For local setup, Render deployment, and technical details, see [HOSTING.md](HOST
 
 Kitchen Crawl Online uses original courier portraits and boss designs inspired by roguelike dungeon crawlers. It does not use The Binding of Isaac artwork, music, code, or characters. Delivery-brand-inspired outfits are unofficial; the game is not affiliated with Wolt, Deliveroo, or DoorDash. Brand references should be reviewed before public distribution.
 
-
 ## Private co-op inventories — v0.5.4
 
 * Each courier has independent damage, fire rate, movement, extra shots, piercing, burning, ricochets, maximum lives, and recipe history. Shared coins pay for the collecting courier’s purchases; keys remain shared.
@@ -257,7 +263,6 @@ Kitchen Crawl Online uses original courier portraits and boss designs inspired b
 * New runs reset both inventories. Boss completion marks remain saved. Inventory changes are host-authoritative and travel in full and compact snapshots, including guest movement-speed upgrades used by prediction.
 * That release used network protocol 3 (superseded by protocol 4 in v0.6.0). Refresh both browsers together; old clients are rejected rather than silently applying shared-upgrade rules.
 * Automated checks cover ownership for all 14 recipe/deal types, shared shop payments, personal healing and life costs, guest HUD and snapshot stats, shot effects, caps, and resets. Browser visual/play testing has not been performed.
-
 
 ## Scarcity and twenty new items — v0.6.0
 
@@ -272,28 +277,30 @@ Kitchen Crawl Online uses original courier portraits and boss designs inspired b
 
 ### Twenty new recipes (28 pedestal items total, plus the 6 existing deal items)
 
-| Item | Rarity | Effect |
-|---|---|---|
-| Compass seasoning | rare | Fries steer toward enemies in line of sight within 320 units. |
-| Popcorn core | legendary | Hits explode in an 80-unit radius for 70% fry damage. No friendly fire. |
-| Caramel charges | rare | Hits attach a charge: after 0.8s it bursts for 80% damage in 60 units. Up to 4 per enemy. |
-| Pickled venom | uncommon | Hits poison enemies for 3 seconds, dealing 1 damage per second. |
-| Static salt | rare | Hits arc to one other enemy within 130 units for 50% damage. Cover blocks arcs. |
-| Crumb splitter | rare | A hit releases two short-lived crumbs dealing 40% fry damage. Crumbs cannot split again. |
-| Heavy cut | common | Hits push ordinary enemies 18 units; bosses resist. |
-| Lucky sesame | uncommon | Each fry has a 15% chance to deal double damage. |
-| Last bite | rare | Deal 50% more damage to enemies below 25% health. |
-| Icebox glaze | uncommon | Your fries slow enemies by 35% for 1.2 seconds. |
-| Long delivery | common | Fries last 40% longer. |
-| Express oil | common | Fries travel 25% faster. |
-| Thick cut | common | Fries have a larger hitbox. |
-| Double dip | rare | Add two angled fries, respecting the six-extra-fries cap. |
-| Back-order | uncommon | Also fire one fry backwards. |
-| Cross-cut | rare | Also fire two fries at 45-degree angles. |
-| Foil wrapper | rare | Block one hit each combat room. Recharges when entering a new uncleared combat room. |
-| Midnight snack | legendary | Your direct or secondary-hit kills have a 12% chance to heal you 1 life. |
-| Garlic crunch | common | Add 0.5 damage per fry. |
-| Kitchen timer | common | Shoot 15% faster. |
+
+| Item              | Rarity    | Effect                                                                                    |
+| ----------------- | --------- | ----------------------------------------------------------------------------------------- |
+| Compass seasoning | rare      | Fries steer toward enemies in line of sight within 320 units.                             |
+| Popcorn core      | legendary | Hits explode in an 80-unit radius for 70% fry damage. No friendly fire.                   |
+| Caramel charges   | rare      | Hits attach a charge: after 0.8s it bursts for 80% damage in 60 units. Up to 4 per enemy. |
+| Pickled venom     | uncommon  | Hits poison enemies for 3 seconds, dealing 1 damage per second.                           |
+| Static salt       | rare      | Hits arc to one other enemy within 130 units for 50% damage. Cover blocks arcs.           |
+| Crumb splitter    | rare      | A hit releases two short-lived crumbs dealing 40% fry damage. Crumbs cannot split again.  |
+| Heavy cut         | common    | Hits push ordinary enemies 18 units; bosses resist.                                       |
+| Lucky sesame      | uncommon  | Each fry has a 15% chance to deal double damage.                                          |
+| Last bite         | rare      | Deal 50% more damage to enemies below 25% health.                                         |
+| Icebox glaze      | uncommon  | Your fries slow enemies by 35% for 1.2 seconds.                                           |
+| Long delivery     | common    | Fries last 40% longer.                                                                    |
+| Express oil       | common    | Fries travel 25% faster.                                                                  |
+| Thick cut         | common    | Fries have a larger hitbox.                                                               |
+| Double dip        | rare      | Add two angled fries, respecting the six-extra-fries cap.                                 |
+| Back-order        | uncommon  | Also fire one fry backwards.                                                              |
+| Cross-cut         | rare      | Also fire two fries at 45-degree angles.                                                  |
+| Foil wrapper      | rare      | Block one hit each combat room. Recharges when entering a new uncleared combat room.      |
+| Midnight snack    | legendary | Your direct or secondary-hit kills have a 12% chance to heal you 1 life.                  |
+| Garlic crunch     | common    | Add 0.5 damage per fry.                                                                   |
+| Kitchen timer     | common    | Shoot 15% faster.                                                                         |
+
 
 Offers use weighted sampling without replacement: each eligible common item has weight 10, uncommon 4, rare 1, legendary 0.25. These are **per-item weights**, not fixed category percentages; odds change as eligible items are removed. Treasure rooms, shops, and boss recipe rewards use this pool. Existing spicy deals/blessings keep their own pools. Most new special effects are unique per courier; Garlic crunch and Kitchen timer stack, and Double dip can stack to the existing spread cap.
 
@@ -303,19 +310,20 @@ Rarity labels and individual symbols appear on pedestals. Homing, explosive, and
 
 **v0.6.0 used protocol 4 (superseded by protocol 5 in v0.7.0):** update the full project, refresh both browsers, and start a new room. Mixed client versions are not supported. Automated tests cover the economy, rarity selection, effects, personal ownership, synchronization, and bundled-page startup. Real browser visuals, combat feel, and final difficulty balance still require playtesting. The real WebSocket integration check requires installing the project dependency.
 
-
 ## Four new couriers and ten combination items — v0.7.0
 
 In v0.7.0, all **8 couriers** were available without unlocks; v0.11.0 replaces that with the challenge system documented below. There are now **38 ordinary pedestal items**, plus the 6 existing deal items. Private inventories, shared coins/keys, scarce money, campaign milestones, and existing save keys are unchanged.
 
 ### New couriers
 
-| Courier | Role | Lives | Damage / move / fire multipliers | Passive | Active |
-|---|---|---|---|---|---|
-| Bastion | Tank | 5 | 0.80 / 0.80 / 0.85 | Ordinary enemies are knocked back by fries | Brace: damage immunity for 1 second, 12-second cooldown. Cannot pass through walls. |
-| Vex | Trickster | 2 | 1.00 / 1.20 / 1.00 | 15% critical chance; Lucky sesame raises it to 30% | False delivery: a stationary 3-second decoy attracts nearby enemy aim, 10-second cooldown. |
-| Fuse | Explosive specialist | 3 | 0.90 / 0.90 / 0.85 | Every fourth firing volley has explosive hits | Pressure burst: 150-unit radius, damage 8 + 0.8 per floor, 14-second cooldown. |
-| Sage | Support | 3 | 0.80 / 1.00 / 1.00 | Receives 1 additional life from healing, capped at maximum | Packed provisions: once per floor, heal each living courier 1 life (Sage receives 2). No revive. |
+
+| Courier | Role                 | Lives | Damage / move / fire multipliers | Passive                                                    | Active                                                                                           |
+| ------- | -------------------- | ----- | -------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Bastion | Tank                 | 5     | 0\.80 / 0.80 / 0.85              | Ordinary enemies are knocked back by fries                 | Brace: damage immunity for 1 second, 12-second cooldown. Cannot pass through walls.              |
+| Vex     | Trickster            | 2     | 1\.00 / 1.20 / 1.00              | 15% critical chance; Lucky sesame raises it to 30%         | False delivery: a stationary 3-second decoy attracts nearby enemy aim, 10-second cooldown.       |
+| Fuse    | Explosive specialist | 3     | 0\.90 / 0.90 / 0.85              | Every fourth firing volley has explosive hits              | Pressure burst: 150-unit radius, damage 8 + 0.8 per floor, 14-second cooldown.                   |
+| Sage    | Support              | 3     | 0\.80 / 1.00 / 1.00              | Receives 1 additional life from healing, capped at maximum | Packed provisions: once per floor, heal each living courier 1 life (Sage receives 2). No revive. |
+
 
 All four have original portraits, on-arena identifiers, independent abilities, and individual completion sheets. The save reader adds the new couriers while preserving previous courier marks; total mark slots are now 32. Both co-op players can select any courier, including identical ones. The server allowlist accepts all eight IDs.
 
@@ -323,23 +331,24 @@ Decoys do not absorb projectiles or block movement. They affect nearest-target e
 
 ### Ten new items
 
-| Item | Rarity | Effect |
-|---|---|---|
-| Return receipt | uncommon | Fries turn back toward their firing courier after 0.45s. Each fry can hit each enemy once. |
-| Serrated skewer | uncommon | Hits cause 2 seconds of bleeding at 1.5 damage per second; refreshes, does not stack. |
-| Overtime stamp | rare | Every sixth firing volley deals 75% more damage. |
-| Magnetic pouch | common | Pull loose coins and keys toward you from 140 units. Cover still blocks them. |
-| Fermentation jar | rare | Your direct hits that kill poisoned enemies burst for 2 damage in 85 units. Bursts cannot chain. |
-| Thermal sauce | rare | Your hits deal 35% more damage to already chilled enemies. Combines with Frost and Icebox glaze. |
-| Charge card | rare | Every eighth direct fry hit arcs for 3 damage to a nearby enemy within 180 units. Cover blocks arcs. |
-| Spiked takeaway | uncommon | When you lose a life, retaliate for 3 damage within 90 units. No friendly fire. |
-| Emergency ration | legendary | Once per run, a fatal hit leaves you at 1 life instead. Does not trigger on maximum-life deals. |
-| Lunchbox drone | legendary | During combat, fire a small homing fry at a visible enemy every 1.5 seconds for half your fry damage. |
+
+| Item             | Rarity    | Effect                                                                                                |
+| ---------------- | --------- | ----------------------------------------------------------------------------------------------------- |
+| Return receipt   | uncommon  | Fries turn back toward their firing courier after 0.45s. Each fry can hit each enemy once.            |
+| Serrated skewer  | uncommon  | Hits cause 2 seconds of bleeding at 1.5 damage per second; refreshes, does not stack.                 |
+| Overtime stamp   | rare      | Every sixth firing volley deals 75% more damage.                                                      |
+| Magnetic pouch   | common    | Pull loose coins and keys toward you from 140 units. Cover still blocks them.                         |
+| Fermentation jar | rare      | Your direct hits that kill poisoned enemies burst for 2 damage in 85 units. Bursts cannot chain.      |
+| Thermal sauce    | rare      | Your hits deal 35% more damage to already chilled enemies. Combines with Frost and Icebox glaze.      |
+| Charge card      | rare      | Every eighth direct fry hit arcs for 3 damage to a nearby enemy within 180 units. Cover blocks arcs.  |
+| Spiked takeaway  | uncommon  | When you lose a life, retaliate for 3 damage within 90 units. No friendly fire.                       |
+| Emergency ration | legendary | Once per run, a fatal hit leaves you at 1 life instead. Does not trigger on maximum-life deals.       |
+| Lunchbox drone   | legendary | During combat, fire a small homing fry at a visible enemy every 1.5 seconds for half your fry damage. |
+
 
 All ten are unique per courier and use the existing weighted rarity pool and rarity-based shop prices. Suggested combinations: Thermal sauce with Frost/Icebox glaze; Fermentation jar with Pickled venom; Overtime stamp with Fuse's fourth volleys; Return receipt with piercing/homing. Returning fries switch from enemy homing to owner tracking after 0.45 seconds, never reset their per-enemy hit history, and still expire normally. Bleed refreshes rather than stacking. Fermentation bursts and capacitor arcs are secondary hits and cannot trigger recursive item procs. Capacitor counts the owner's direct item-bearing fry hits; its charge resets at eight even if no secondary target is available. Drone fries have no recursively inherited item procs and respect the projectile cap. Emergency ration is spent once per run, cannot prevent maximum-life deal costs, and still counts as taking boss damage. Thorn retaliation cannot hurt teammates.
 
 **Network protocol 5:** deploy the complete project including the updated lobby server, refresh both players, and create a fresh room. Older clients are not compatible. No deployment has been performed. Browser visual/play testing and difficulty balancing remain outstanding; automated tests exercise the bundled HTML, new couriers, abilities, personal items, combat combinations, simulated co-op, and existing save migration.
-
 
 ## Viewport UI — v0.8.0
 
@@ -351,7 +360,6 @@ All ten are unique per courier and use the existing weighted rarity pool and rar
 * Network protocol remains **5**; no gameplay or wire-format changes are introduced by this UI update. Refresh both browsers after updating.
 
 Automated regression checks cover viewport-fit calculations, solo inventory pagination and navigation, guest inventory pause synchronization, bundled-page startup, and existing gameplay. Real-browser visual QA remains outstanding.
-
 
 ## Secret endgame and model refresh — v0.9.0
 
@@ -385,19 +393,20 @@ Either co-op player may enter a gate for the team. Arena entry, portal rolls, at
 
 Validation: automated tests cover timer boundaries, pause behavior, one-time chance boundaries, guaranteed rifts, optional endings and continuing to floor 10, both bosses' attacks and teleport warnings, gradual enemy unlocks, model drawing paths, simulated guest-triggered arena transitions, mark persistence, and prior gameplay. Browser visual/playtesting and endgame balance testing remain outstanding. The real HTTP/WebSocket integration test requires the project's dependency and is skipped when it is not installed.
 
-
 ## Six new synergy recipes — v0.9.1
 
 The ordinary pedestal/shop recipe pool now contains **44 items** (plus the six existing boss-deal recipes). The six additions are non-stackable per courier, use the normal rarity-weighted offers, and cost 24 coins for uncommon or 30 for rare in shops. Existing items and saves are preserved.
 
-| Item | Standalone effect | Example combination |
-| --- | --- | --- |
-| Steam sachet · Rare | Direct fries slow enemies for 1.2 seconds. | Chili drizzle / Inferno sauce, or a target already burning: a 70-unit steam pulse deals 50% hit damage and slows. At most one pulse per 0.6 seconds per firing courier. Cover blocks the pulse; no friendly fire. |
-| Brine battery · Rare | Every fourth direct fry hit arcs to another visible enemy within 160 units for 1 damage. Charge is spent even without another target. | Pickled venom / already-poisoned target: arc damage becomes 2. Static salt produces its separate normal arc as well. |
-| Glaze relay · Rare | Direct fries bleed for 1 second. Serrated skewer keeps its longer 2-second bleed. | Your fry arcs, fry explosions, and sticky bursts carry your slow, poison and bleed flags. Works with Frost, Steam sachet, Static salt, Charge card, Brine battery, Popcorn core, Fuse's fourth volley, and Caramel charges as applicable. It does not upgrade active-ability blasts. |
-| Wallflower seasoning · Uncommon | Fries bounce once and gain 25% damage on each bounce. | Rubber fries grants a second bounce. Compass seasoning, Return receipt, and other projectile effects remain on the bouncing fry. |
-| Prism wrapper · Rare | Every fifth firing volley is prismatic. Each prismatic fry's first hit releases three shards dealing 35% hit damage. | Shards inherit Compass seasoning's homing and Skewer fries' piercing. Crumb splitter adds its two normal crumbs for five secondary projectiles. Glaze relay can carry statuses onto the prism shards. |
-| Marinade dust · Uncommon | Direct hits add seasoning lasting 4 seconds, up to 3 stacks. Each existing stack adds 0.15 damage to that courier's next direct hit. | Enemies already poisoned or bleeding gain 2 stacks instead of 1. Combines with Pickled venom, Serrated skewer, or Glaze relay. Each courier has separate stacks. |
+
+| Item                            | Standalone effect                                                                                                                     | Example combination                                                                                                                                                                                                                                                                  |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Steam sachet · Rare             | Direct fries slow enemies for 1.2 seconds.                                                                                            | Chili drizzle / Inferno sauce, or a target already burning: a 70-unit steam pulse deals 50% hit damage and slows. At most one pulse per 0.6 seconds per firing courier. Cover blocks the pulse; no friendly fire.                                                                    |
+| Brine battery · Rare            | Every fourth direct fry hit arcs to another visible enemy within 160 units for 1 damage. Charge is spent even without another target. | Pickled venom / already-poisoned target: arc damage becomes 2. Static salt produces its separate normal arc as well.                                                                                                                                                                 |
+| Glaze relay · Rare              | Direct fries bleed for 1 second. Serrated skewer keeps its longer 2-second bleed.                                                     | Your fry arcs, fry explosions, and sticky bursts carry your slow, poison and bleed flags. Works with Frost, Steam sachet, Static salt, Charge card, Brine battery, Popcorn core, Fuse's fourth volley, and Caramel charges as applicable. It does not upgrade active-ability blasts. |
+| Wallflower seasoning · Uncommon | Fries bounce once and gain 25% damage on each bounce.                                                                                 | Rubber fries grants a second bounce. Compass seasoning, Return receipt, and other projectile effects remain on the bouncing fry.                                                                                                                                                     |
+| Prism wrapper · Rare            | Every fifth firing volley is prismatic. Each prismatic fry's first hit releases three shards dealing 35% hit damage.                  | Shards inherit Compass seasoning's homing and Skewer fries' piercing. Crumb splitter adds its two normal crumbs for five secondary projectiles. Glaze relay can carry statuses onto the prism shards.                                                                                |
+| Marinade dust · Uncommon        | Direct hits add seasoning lasting 4 seconds, up to 3 stacks. Each existing stack adds 0.15 damage to that courier's next direct hit.  | Enemies already poisoned or bleeding gain 2 stacks instead of 1. Combines with Pickled venom, Serrated skewer, or Glaze relay. Each courier has separate stacks.                                                                                                                     |
+
 
 ### Visible effects and rules
 
@@ -409,16 +418,15 @@ Secondary hits cannot recursively trigger on-hit effects, more shards, charges, 
 
 Validation: **102 automated tests passed; 1 dependency-based HTTP/WebSocket integration test skipped**. Tests cover precise damage, cooldowns, cover, personal ownership and resets, relay propagation, non-recursion, actual-update bounce limits, shard and effect limits, snapshots, inventory markup, and existing gameplay. Real-browser visual checks and balance playtesting remain outstanding.
 
-
 ## Boss arsenal expansion — v0.10.0
 
 Three new regular bosses bring the total roster to **18**: twelve regular families, four fixed campaign milestones and two optional endgame bosses. All previous bosses and saved completion marks remain available. No new permanent-stat rewards or completion marks are introduced. The campaign is still twelve floors; it draws eight of the twelve regular families without repeats.
 
 ### New bosses
 
-- **Waffle Iron Duke:** alternates vertical and horizontal iron-press bars with a missing lane. Read the dashed waffle grid, then move out of the bars before the press lands.
-- **Tempura Tempest:** locks a triangular batter-fan area before releasing a scalding spray. Alternates in aimed projectile fans; at half health, two spread-out batter cones replace the single cone.
-- **Neon Noodle:** lashes three locked noodle lanes, alternating with aimed noodle volleys. At half health, its special gains a fourth lane.
+* **Waffle Iron Duke:** alternates vertical and horizontal iron-press bars with a missing lane. Read the dashed waffle grid, then move out of the bars before the press lands.
+* **Tempura Tempest:** locks a triangular batter-fan area before releasing a scalding spray. Alternates in aimed projectile fans; at half health, two spread-out batter cones replace the single cone.
+* **Neon Noodle:** lashes three locked noodle lanes, alternating with aimed noodle volleys. At half health, its special gains a fourth lane.
 
 Each has its own drawn model, uses ordinary boss HP and champion scaling, and enrages into faster cycles without reducing the special's warning time. Normal specials warn for 1.2–1.3 seconds. Finite lane ends and triangular cone corners are real geometry, not invisible circular approximations. Warning positions and angles lock when created and do not chase players.
 
@@ -426,23 +434,25 @@ Each has its own drawn model, uses ordinary boss HP and champion scaling, and en
 
 Every existing boss gains the following extra special on every third attack cycle, alongside its previous patterns. HP is not increased by this update.
 
-| Boss | Added signature special |
-| --- | --- |
-| Donut Overlord | Sugar scissors: two sprinkle lanes with a gap. |
-| Burger Baron | Grill press: a triangular heated grill zone. |
-| Pizza Supreme | Cheese cutter: one broad slicing lane. |
-| Sushi Shogun | Cross-cut: three narrow cleaver lanes. |
-| Gelato Giant | Deep freeze: five radiating ice-fracture lanes. |
-| Espresso Emperor | Scalding pour: a coffee cone. |
-| Boiler Heart | Boiler rupture: twin pressure jets. |
-| Ash Warden | Furnace breath: a broad flame cone. |
-| The Silent Deep | Undertow: two opposing tidal arms. |
-| The Unravelled | Unravelling seams: four rift lanes. |
-| Cleaver Crab | Twin chop: two diverging cleaver lanes. |
-| Pickle Hydra | Brine breath: three spread-out cones. |
-| Pressure Chef | Valve failure: a broad steam jet. |
-| The Last Call | Final chime: two long bell rays. |
-| The Endless Banquet | Table service: three hunger wedges. |
+
+| Boss                | Added signature special                         |
+| ------------------- | ----------------------------------------------- |
+| Donut Overlord      | Sugar scissors: two sprinkle lanes with a gap.  |
+| Burger Baron        | Grill press: a triangular heated grill zone.    |
+| Pizza Supreme       | Cheese cutter: one broad slicing lane.          |
+| Sushi Shogun        | Cross-cut: three narrow cleaver lanes.          |
+| Gelato Giant        | Deep freeze: five radiating ice-fracture lanes. |
+| Espresso Emperor    | Scalding pour: a coffee cone.                   |
+| Boiler Heart        | Boiler rupture: twin pressure jets.             |
+| Ash Warden          | Furnace breath: a broad flame cone.             |
+| The Silent Deep     | Undertow: two opposing tidal arms.              |
+| The Unravelled      | Unravelling seams: four rift lanes.             |
+| Cleaver Crab        | Twin chop: two diverging cleaver lanes.         |
+| Pickle Hydra        | Brine breath: three spread-out cones.           |
+| Pressure Chef       | Valve failure: a broad steam jet.               |
+| The Last Call       | Final chime: two long bell rays.                |
+| The Endless Banquet | Table service: three hunger wedges.             |
+
 
 ### Effects and readability
 
@@ -453,7 +463,6 @@ Reduced Motion keeps these internal patterns stationary. Pause freezes warnings 
 **Network protocol 8:** damage and attack creation remain host-authoritative; exact shape geometry, style and projectile skins travel in normal snapshots. Deploy the complete project, refresh both co-op browsers, and start a fresh room. Protocol-7 clients are rejected rather than misrendering the new hazards. No deployment has been performed.
 
 Validation: **113 automated tests passed; 1 dependency-based HTTP/WebSocket integration test skipped.** Tests include all eighteen attack/render paths, all fifteen old-boss specials, warning safety, lane/cone geometry, locked aim, pause, guest-only damage, snapshot fidelity, old-protocol rejection, hazard/projectile caps, campaign selection and prior regressions. Real-browser visual checks and balance playtesting remain outstanding.
-
 
 ## v0.11.0 — themed floors and courier challenges
 
@@ -472,16 +481,18 @@ These are solid cover, not decorative-only props: existing body/projectile colli
 
 ### Start with Rook; unlock the other seven
 
-| Courier | Unlock challenge |
-| --- | --- |
-| Rook | Starter, available on first launch. |
-| Frost | Defeat the floor 1 boss. |
-| Hop | Clear 10 combat rooms across runs (boss rooms count). |
-| Ember | Defeat Boiler Heart on floor 3. |
-| Bastion | Defeat 5 bosses across runs. |
-| Vex | Defeat a boss without either courier taking damage in that encounter. |
-| Fuse | Personally collect 12 recipes across runs, including deal recipes. |
-| Sage | Visit 3 unused cafe breaks while injured across runs. |
+
+| Courier | Unlock challenge                                                      |
+| ------- | --------------------------------------------------------------------- |
+| Rook    | Starter, available on first launch.                                   |
+| Frost   | Defeat the floor 1 boss.                                              |
+| Hop     | Clear 10 combat rooms across runs (boss rooms count).                 |
+| Ember   | Defeat Boiler Heart on floor 3.                                       |
+| Bastion | Defeat 5 bosses across runs.                                          |
+| Vex     | Defeat a boss without either courier taking damage in that encounter. |
+| Fuse    | Personally collect 12 recipes across runs, including deal recipes.    |
+| Sage    | Visit 3 unused cafe breaks while injured across runs.                 |
+
 
 Locked couriers remain browsable with their kits and challenge progress, but cannot be chosen to start or join a run. Only unlocked selections are remembered. Each browser stores unlocks and cumulative challenge progress under `kitchen-crawl-unlocks-v1`. Progress saves during play, including runs that end in defeat or are abandoned. A new run resets its counters without resetting lifetime progress. Repeated snapshots do not count the same event twice.
 
@@ -494,3 +505,97 @@ On first migration, existing major-boss completion marks provide evidence toward
 Validation covers first-launch locks, challenge thresholds, immediate unlocks, reloads, quitting, co-op credit ownership, missed snapshots, all eight biome render paths, clear crossing lanes/spawns, and appearance synchronization. Real-browser visual/playtesting and balance checks remain outstanding; the HTTP/WebSocket integration test requires the project dependency.
 
 Final checks: `node --check public/game.js`, `node build.cjs`, and `node --test` succeeded: **120 passed, 1 dependency-based integration test skipped, 0 failures**.
+
+## v0.11.1 — ordinary bullet freeze fix
+
+Fixed `ReferenceError: circle is not defined` in `drawBossBullet`: ordinary orb bullets and older bullets without a skin now draw directly with the provided canvas context and color resolver instead of calling a helper scoped inside another function. The exception previously stopped animation-frame scheduling during combat. Added direct renderer and solo/co-op frame regressions; both reproduced the error before the fix. Protocol 9 and existing save keys are unchanged. Update `public/game.js` and the rebuilt `public/index.html` together, redeploy, and refresh both co-op browsers. No live deployment has been performed.
+
+Validation: syntax check, self-contained HTML rebuild, and full automated suite succeeded: **122 passed, 1 dependency-based integration test skipped, 0 failures**. Real-browser playtesting remains outstanding.
+
+## v0.12.0 — risk rooms, collections and stability (included)
+
+* Optional challenge rooms: accept a contract explicitly, defeat the encounter, and choose a premium recipe reward.
+* Secret pantries: land three direct shots on a cracked wall to reveal the hidden entrance. Rewards are granted once.
+* Biome terrain includes conveyors, slippery ice, warning-first steam and intermittent wind.
+* Gold-trim mastery outfits unlock after three boss defeats as the courier, with no combat-stat advantages.
+* Discovery book tracks collected recipes and discovered synergies without revealing unknown entries.
+* Results summarize your damage, room clears, bosses, contracts, secrets and unlocks.
+* Unexpected frame errors pause safely, provide a copyable error report, and allow recovery to the menu.
+
+## v0.13.0 — cursed recipes, traveling food truck and recap cards
+
+Daily runs, daily attempt enforcement, accounts and leaderboards are intentionally NOT implemented.
+
+### Cursed recipes
+
+Every shop offers an optional free cursed recipe through the side panel. Choose one and explicitly confirm; no curse is collected by walking into it. One curse choice per courier per floor. You cannot accept a duplicate curse. Drawbacks last for the run, are visible before accepting, and remain readable in Inventory and the discovery book.
+
+* **Glass-sugar glaze:** \+75% fry damage; movement is 20% slower.
+* **Overcooked rush:** 60% faster firing; fry damage is 30% lower.
+* **Volatile takeaway:** explosive hits; fry flight time is 45% shorter. No friendly fire, consistent with ordinary explosive recipes.
+
+Curses combine multiplicatively and affect only their collector, including in co-op. They reset with the rest of your build on a new run. They do not enter the ordinary 44-item loot pool.
+
+### Traveling food truck
+
+The truck visits the shop on floors **2, 6 and 10**. It has three uncommon/rare recipe offers and charges no coins. Select an eligible owned recipe to give and a displayed recipe to receive, then confirm the permanent exchange. You may leave freely without trading.
+
+Each courier gets one trade per truck per floor, not another trade on revisiting. One owned stack is removed and its effect reversed. Eligible recipes are Extra crispy, Garlic crunch, Rush hour, Kitchen timer, Family portion, Skewer fries, Chili drizzle and Rubber fries. Health, movement, deal and complex special recipes are deliberately excluded from trade-in to avoid undoing healing, caps or maximum-life payments. Already-capped reward recipes and exchanging a recipe for itself are rejected.
+
+All market decisions are host-authoritative. Stale-room, unsupported, duplicate and invalid requests are rejected. Shared coins are untouched; each courier keeps their own rewards and effects.
+
+### Results and shareable recap cards
+
+Death AND victory results show collected recipe glyphs with stack counts. These reuse the pickup glyph vocabulary; tap/click an item for its description and current owned count. Collected counts include recipes later traded away, so history is not lost. Final active synergies appear separately. Each co-op player sees their own collection.
+
+**Save recap image** downloads a PNG with outcome, courier, score, time, floor, run statistics, final synergies, collected recipe icons/counts and version. It does not send or post anything and does not require external hosting. If canvas export/download is unavailable, the results remain available for a screenshot.
+
+### Compatibility and checks
+
+Network protocol is now **11**. Update the full project and refresh both co-op browsers together; mixed client versions are rejected. Existing collection, courier, mastery and completion save keys are unchanged.
+
+Validation: `node --check public/game.js`, `node --check lobby.cjs`, `npm run build`, and `node --test`. The current suite reports **144 tests: 143 pass, 0 fail, 1 skipped**. It covers bundled HTML startup, markets, effect reversals, co-op isolation/synchronization, inventory/result details, export error recovery and extended combat. The real WebSocket integration test is skipped without the `ws` dependency installed. Real browser screenshots, visual/mobile layout and successful PNG downloading remain manual playtest requirements; no browser binary is available in the build environment.
+
+The downloadable standalone HTML supports solo play. For online co-op deploy the complete project and open both players through the hosted service. Nothing is deployed automatically.
+
+## v0.13.1 — coin and key artwork
+
+Replaced letter/currency-symbol floor pickups with font-independent vector artwork: a rimmed gold coin with an embossed diamond and a gold key with a hollow bow, shaft and teeth. Both have ground shadows and subtle bobbing (disabled by reduced-motion settings). Shop key pedestals use the key artwork; HUD counters have matching SVG icons. Pickup ranges, currency values, collision and co-op rules are unchanged. Protocol remains 11. Automated checks: 145 tests, 144 pass, zero failures, one skipped; browser visual playtesting remains pending.
+
+## v0.13.2 — contract board interaction and terrain repetition fix
+
+Your existing README edits have been retained; this section supersedes older contract-acceptance and terrain-frequency descriptions.
+
+### Contract acceptance
+
+Contract rooms contain a drawn noticeboard instead of relying on an immediate-start sidebar action. Approach within 90 world units, then press **F** or tap **Read contract**. A focused confirmation sheet shows the exact modifier, bonus coins, shared reward choice and locked-exit warning. Choose **Accept & start combat** to begin, or **Not now** / Escape to close it without starting anything. Before acceptance the room is safe and its doors remain open. Acceptance remains optional and single-use.
+
+In co-op either living courier near the board may confirm for the team. The host validates the requesting courier's current position, room and offered state; stale, remote, dead-player and duplicate requests are rejected. Room changes, a teammate accepting, pause and other panels close the local preview. The dialog captures movement shortcuts and restores canvas focus when dismissed.
+
+### Repeated BELT rectangle
+
+Diagnosis: terrain was being generated in **every** battle and contract room, causing the same biome patch to reappear repeatedly; this was not evidence of one object persisting between rooms. Generation now selects **one ordinary combat room per floor** for terrain. Shops, cafes, starts, treasure rooms, secret rooms, contract rooms and boss rooms have none. Existing room-local movement and slide reset behavior is preserved and regression-tested through room transitions and co-op snapshots.
+
+Conveyors now look like actual machinery: dark tread slats, gold rails and directional chevrons, rather than a translucent labeled rectangle. Reduced Motion keeps tread animation still. Other selected-room biome mechanics (ice, steam and wind) are retained.
+
+Validation: syntax check, bundled HTML build, **150 automated tests: 149 passed, 0 failed, 1 dependency-based integration test skipped**. New checks cover confirmation/cancellation, board proximity, guest request validation, stale-preview cleanup, one-terrain-room generation and safe-room/co-op isolation. Real browser/mobile visual playtesting remains outstanding. Protocol remains 11; refresh both browsers and start a fresh run to generate the new room layouts. No deployment has been performed.
+
+
+## v0.13.3 — stronger visual identity for all eight floor biomes
+
+The eight existing biomes now use distinct, higher-contrast materials, larger architectural patterns and recognizable wall fixtures rather than mostly subtle color variations:
+
+* **City Kitchen:** ceramic service tiles, inset metal drains, hazard-striped corner trim and wall strip lights. Delivery crates have shipping labels.
+* **Sushi Station:** staggered timber planks with grain marks, inset tatami panels and red noren-style wall curtains. Counters show individual sushi rolls.
+* **Frozen Pantry:** broad glacial slabs, branching ice cracks, frost teeth along the perimeter and crystal wall trim. Freezers have snowflake emblems.
+* **Midnight Diner:** bolder checkerboard flooring, chrome/pink perimeter stripes and neon wall fixtures. Booths include table surfaces and plates.
+* **Spice Market:** staggered sandstone, large woven kilim bands with repeating diamonds and patterned wall goods. Racks have individually outlined spice jars.
+* **Royal Food Court:** large marble diamonds, subtle veins, an inlaid crown crest and gold wall ornaments. Plinths have ornamental gold edging.
+* **Boiler Works:** riveted steel plates, recessed grates and bundled pipes with valve wheels. Tanks have pressure gauges.
+* **Neon Rooftops:** large membrane panels, patched seams, recessed fan markings and perimeter light modules. Vents have fan details.
+
+These are visual changes only. Decorative art is rendered beneath real terrain, hazards, loot and actors; its motifs are not new collisions or damage zones. Existing obstacle boxes, clear crossing lanes, door locations, camera behavior, reduced-motion behavior, progression and saves are unchanged. Props keep their original collision bounds, with extra details clipped inside. No decorative ambient animation was added.
+
+The v0.13.2 contract-board interaction and fix limiting terrain to **one ordinary combat room per floor** remain in place. This update does not introduce terrain patches in every room. Floors 9–12 continue the existing eight-biome rotation; this is not a change to the campaign length or biome order. Network protocol remains 11, with no new dependencies or assets to download.
+
+Validation: JavaScript syntax checks, self-contained HTML rebuild, and **153 automated tests: 152 passed, 0 failed, 1 dependency-based WebSocket integration test skipped**. New tests check unique deterministic geometry across all eight designs, balanced drawing state, bounded drawing calls, no mutation of combat/collision/terrain data, co-op rendering, and retained terrain frequency. Browser/mobile visual playtesting remains pending. Nothing was pushed or deployed automatically.

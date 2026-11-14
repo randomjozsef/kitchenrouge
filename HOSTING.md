@@ -97,3 +97,8 @@ Snapshot protocol 7 carries new projectile effects and personal synergy counters
 ### v0.10.0 boss expansion
 
 Use snapshot protocol 8. New lane/cone hazard geometry and boss projectile skins require both players to refresh after the full project is deployed. Start a new room; mixed protocol versions are rejected. Existing browser completion marks remain compatible.
+
+
+## v0.13.0 deployment note
+
+Deploy the full project, not just `game.js`: `npm run build` refreshes the self-contained HTML. Network protocol 11 requires both players to refresh and start a fresh room. Curses, food-truck trades and recap PNG export need no database or new environment variables. Daily runs and leaderboards are deferred. This package has not been pushed or deployed automatically.
