@@ -1,0 +1,14 @@
+'use strict';
+const http=require('node:http'),fs=require('node:fs'),path=require('node:path');
+const {WebSocketServer}=require('ws');const {createLobby}=require('./lobby.cjs');
+const {createHash}=require('node:crypto');
+const pageHTML=fs.readFileSync(path.join(__dirname,'public/index.html'),'utf8');
+const scriptHashes=[...pageHTML.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].map(m=>"'sha256-"+createHash('sha256').update(m[1]).digest('base64')+"'").join(' ');
+const allowed=new Map([['/','index.html'],['/index.html','index.html'],['/game.js','game.js'],['/coop.js','coop.js']]);
+const server=http.createServer((req,res)=>{let route;try{route=new URL(req.url,'http://localhost').pathname;}catch(_){res.writeHead(400);res.end();return;}res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','no-referrer');res.setHeader('Cache-Control','no-cache');res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self' "+scriptHashes+"; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'");if(route==='/health'){res.writeHead(200,{'Content-Type':'application/json'});res.end('{"ok":true}');return;}const file=allowed.get(route);if(!file||!['GET','HEAD'].includes(req.method)){res.writeHead(404);res.end('Not found');return;}fs.readFile(path.join(__dirname,'public',file),(err,bytes)=>{if(err){res.writeHead(500);res.end('Unable to read game');return;}res.writeHead(200,{'Content-Type':file.endsWith('.js')?'text/javascript; charset=utf-8':'text/html; charset=utf-8'});res.end(req.method==='HEAD'?undefined:bytes);});});
+const wss=new WebSocketServer({noServer:true,maxPayload:262144,perMessageDeflate:false});const lobby=createLobby();
+server.on('upgrade',(req,socket,head)=>{try{const origin=new URL(req.headers.origin||'');if(origin.host!==req.headers.host||new URL(req.url,'http://localhost').pathname!=='/ws'){socket.destroy();return;}if(wss.clients.size>=400){socket.destroy();return;}wss.handleUpgrade(req,socket,head,ws=>wss.emit('connection',ws,req));}catch(_){socket.destroy();}});
+wss.on('connection',ws=>{ws.alive=true;ws.on('pong',()=>ws.alive=true);lobby.attach(ws);});
+const timer=setInterval(()=>{for(const ws of wss.clients){if(!ws.alive){ws.terminate();continue;}ws.alive=false;ws.ping();}},30000);timer.unref();
+const port=Number(process.env.PORT)||3000;server.listen(port,'0.0.0.0',()=>console.log('Kitchen Crawl listening on port '+port));
+process.on('SIGTERM',()=>{clearInterval(timer);for(const ws of wss.clients)ws.close(1001,'Server restarting');server.close(()=>process.exit(0));setTimeout(()=>process.exit(0),5000).unref();});
