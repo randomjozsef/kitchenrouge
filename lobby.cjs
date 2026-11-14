@@ -1,7 +1,7 @@
 'use strict';
 const { randomInt } = require('node:crypto');
 function createLobby({maxRooms=200,now=Date.now}={}) {
-  const rooms=new Map(),members=new Map();const character=id=>['rook','frost','hop','ember'].includes(id)?id:'rook';
+  const rooms=new Map(),members=new Map();const character=id=>['rook','frost','hop','ember','bastion','vex','fuse','sage'].includes(id)?id:'rook';
   const send=(socket,msg)=>{if(socket?.readyState===1&&socket.bufferedAmount<(msg.type==='snapshot'?32768:65536))socket.send(JSON.stringify(msg));};
   function leave(socket){const m=members.get(socket);if(!m)return;const r=rooms.get(m.code);members.delete(socket);if(!r)return;for(const peer of [r.host,r.guest])if(peer&&peer!==socket){members.delete(peer);send(peer,{type:'peer-left'});}rooms.delete(m.code);}
   function attach(socket){let windowStart=now(),count=0;socket.on('message',raw=>{try{if(now()-windowStart>1000){windowStart=now();count=0;}if(++count>90){socket.close(1008,'Rate limit');return;}if(raw.length>262144){socket.close(1009,'Too large');return;}const msg=JSON.parse(String(raw));if(!msg||typeof msg!=='object')return;

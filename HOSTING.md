@@ -82,3 +82,18 @@ No extra environment variables or larger RAM allocation are required by this upd
 * Each browser shows standard rooms in full, and renders a local follow camera only in larger rooms. Camera positions are not shared player state.
 * Completion marks and settings save locally in each player's browser. There are no permanent stat upgrades or token rewards in v0.5.1.
 * The missing public/index.html error means the deployed folder structure or Render root directory is incorrect; the build expects that source file to already exist.
+
+
+### v0.9.0 endgame update
+
+This release uses snapshot protocol 6 for optional boss arenas and new enemies. Deploy the complete project and refresh both clients before creating a fresh room. Existing runs do not migrate. Browser-saved completion marks remain compatible.
+
+
+### v0.9.1 synergy update
+
+Snapshot protocol 7 carries new projectile effects and personal synergy counters. Deploy all files together, refresh both clients, and create a fresh room. Existing boss completion marks remain compatible.
+
+
+### v0.10.0 boss expansion
+
+Use snapshot protocol 8. New lane/cone hazard geometry and boss projectile skins require both players to refresh after the full project is deployed. Start a new room; mixed protocol versions are rejected. Existing browser completion marks remain compatible.
